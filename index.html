@@ -1,0 +1,751 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-2T4coyR7Oe9sAPJfc7n3anYMQX9bl7nI86adRzBNzFmC3VY8Baw57dyr8ArXJfwQQZnBpQRWpXTMQjMhAcsUfw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <style>
+     @keyframes slideInFromLeft {
+    0% {
+      transform: translateX(-100%);
+      opacity: 0;
+    }
+    100% {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
+
+  @keyframes slideInFromTop {
+    0% {
+      transform: translateY(-100%);
+      opacity: 0;
+    }
+    100% {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+
+  @keyframes slideInFromRight {
+    0% {
+      transform: translateX(100%);
+      opacity: 0;
+    }
+    100% {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
+
+  .animation-slideInFromLeft {
+    animation: slideInFromLeft 1s ease-in-out;
+  }
+
+  .animation-slideInFromTop {
+    animation: slideInFromTop 1s ease-in-out;
+  }
+
+  .animation-slideInFromRight {
+    animation: slideInFromRight 1s ease-in-out;
+  }
+    .oval-image {
+      border-radius: 50%;
+      object-fit: cover;
+    }
+    .hidden-info {
+            display: none;
+        }
+        .card:hover .hidden-info {
+            display: flex;
+        }
+        .card:hover .default-info {
+            display: none;
+        }
+        .card:hover {
+            max-height: 500px;
+            transition: max-height 0.3s ease-in-out;
+        }
+        .custom-height {
+            height: 230px; /* Adjust this value as needed */
+        }
+        .custom-height1{
+          height: 185px;
+        
+        }
+        .group:hover .group-hover\:text-white {
+            color: white;
+        }
+
+        .group:hover .group-hover\:bg-primaryColor {
+            background-color: #5a67d8;
+        }
+
+        .group:hover .group-hover\:font\[600\] {
+            font-weight: 600;
+        }
+
+        .group:hover .group-hover\:font\[500\] {
+            font-weight: 500;
+        }
+
+        .group:hover .group-hover\:text-white {
+            color: white;
+        }
+
+        .group:hover .group-hover\:font\[500\] {
+            font-weight: 500;
+            
+        }
+
+        .hidden {
+      display: none;
+    }
+
+    .card-container {
+      display: flex;
+      justify-content: space-around;
+    }
+
+    .card1 {
+      max-width: 300px;
+      position: relative;
+    }
+
+    .card1 img {
+      width: 100%;
+      height: auto;
+    }
+
+    .btn-details {
+      display: none;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    .card1:hover .btn-details {
+      display: block;
+    }
+    body {
+    background: linear-gradient( #580c4a, #e68caf,#580c4a );
+    /* You can adjust the angles and colors as needed */
+    height: 100vh; /* Ensures the gradient covers the entire viewport */
+    margin: 0;
+    padding: 0;
+
+    }
+    .hidden-info {
+  display: none;
+}
+
+.card-container {
+  display: flex;
+  justify-content: space-around;
+}
+
+.card1 {
+  max-width: 300px;
+  position: relative;
+}
+
+.card1 img {
+  width: 100%;
+  height: auto;
+}
+
+.btn-details {
+  display: none;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.card1:hover .btn-details {
+  display: block;
+}
+.details {
+    pointer-events: none; /* Prevent the details div from capturing mouse events */
+  }
+  .relative:hover .details {
+    opacity: 1; /* Show details when hovering over the card */
+  }
+  .details {
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  .bg-white:hover .details {
+    opacity: 1;
+  }
+
+  .bg-white:hover .image {
+    opacity: 0.2;
+  }
+
+
+  </style>
+  
+
+
+</style>
+</head>
+<body style="background-color: #49243E;">
+<section id="nav" class="bg-pink-900 py-0 px-8 fixed top-0 left-0 w-full h-16 z-10">
+    <nav class="">
+      <div class="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
+        <div class="relative flex h-16 items-center justify-between">
+          <div class="absolute inset-y-0 left-0 flex items-center sm:hidden">
+            <!-- Mobile menu button-->
+            <button type="button" class="relative inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white" aria-controls="mobile-menu" aria-expanded="false">
+              <span class="absolute -inset-0.5"></span>
+              <span class="sr-only">Open main menu</span>
+              <!-- Icon when menu is closed. Menu open: "hidden", Menu closed: "block" -->
+              <svg class="block h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+              </svg>
+              <!-- Icon when menu is open. Menu open: "block", Menu closed: "hidden" -->
+              <svg class="hidden h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            </button>
+          </div>
+          <div class="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
+            <div class="hidden sm:ml-6 sm:block">
+              <div class="flex space-x-4">
+                <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
+                <a href="#Home" class="text-gray-300 hover:bg-pink-900 hover:text-white block rounded-md px-3 py-2 text-base font-medium">Home</a>
+                <a href="#Education" class="text-gray-300 hover:bg-pink-900 hover:text-white block rounded-md px-3 py-2 text-base font-medium">Education</a>
+                <a href="#skills" class="text-gray-300 hover:bg-pink-900 hover:text-white block rounded-md px-3 py-2 text-base font-medium">Skills</a>
+                <a href="#projects" class="text-gray-300 hover:bg-pink-900 hover:text-white block rounded-md px-3 py-2 text-base font-medium">Projects</a>
+                <a href="#Internships" class="text-gray-300 hover:bg-pink-900 hover:text-white block rounded-md px-3 py-2 text-base font-medium">Internships</a>
+                <a href="#certs" class="text-gray-300 hover:bg-pink-900 hover:text-white block rounded-md px-3 py-2 text-base font-medium">Certificates</a>
+                <a href="#ror" class="text-gray-300 hover:bg-pink-900 hover:text-white block rounded-md px-3 py-2 text-base font-medium">Role Of Responsibility</a>
+                
+                <a href="#contact" class="text-gray-300 hover:bg-pink-900 hover:text-white block rounded-md px-3 py-2 text-base font-medium">Contact</a>
+              </div>
+            </div>
+          </div>
+          <div class="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
+            
+            <!-- Profile dropdown -->
+            <div class="relative ml-3">
+              <div>
+                
+                  
+                  
+                  <img class="h-8 w-8 rounded-full" src="sup.jpg" alt="">
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+    </nav>
+  </section>
+  <!--HOMEEEEEEEEEEEEEEEEEEE-->
+  <section id="Home" style="padding-top: 1.5rem;">
+    <section class="container mx-auto mt-8 px-4 py-12 bg-color-f496a6 text-white">
+        <!-- Existing content -->
+        <section class="bg-white bg-opacity-30 rounded-lg shadow-lg p-6 flex items-center text-white">
+            <div class="w-2/3"> <!-- Adjusted width for text content -->
+                <p class="text-2xl"> Welcome to My Portfolio!</p>
+                <h6 class="text-2xl font-semibold text-white-800"></h6><br>
+                <h2 class="text-4xl font-extrabold text-purple-900 animate-pulse">I am Supritha Kotegar</h2>
+                <h2 class="text-2xl mt-2 font-semibold text-purple-900 animate-bounce">Intern at EGDK</h2>
+                <p class="mt-4 text-white-600">Hello! I'm Supritha Kotegar, a passionate Computer Science Engineer with a knack for solving complex problems and a love for coding. Here, you will find my projects, skills, and experiences that showcase my journey in the tech world.</p>
+                
+                <div class="mt-4 flex items-center gap-6 flex-wrap md:gap-8">
+                    <div class="flex items-center gap-4">
+                        <span class="text-white-300 font-semibold text-sm">Follow Me:</span>
+                    </div>
+                    <a href="https://www.linkedin.com/in/supritha-kotegar-783916272/" class="text-gray-300 font-semibold text-lg animate-pulse">
+                        <img src="linkdin.png" alt="LinkedIn Profile" class="w-10 h-7">
+                    </a>
+                    <span>
+                        <a href="https://github.com/egdk-sukot/" class="text-gray-300 font-semibold text-lg gap--2 animate-pulse">
+                            <img src="git.png" alt="LinkedIn Profile" class="w-11 h-6">
+                        </a>
+                    </span>
+                    <span>
+                        <a href="mailto:suprithak37@gmail.com" class="text-gray-300 font-semibold text-lg animate-pulse">
+                            <img src="email.png" alt="LinkedIn Profile" class="w-6 h-6">
+                        </a>
+                    </span>
+                </div>
+            </div>
+            
+            <div class="w-1/3 ml-auto"> <!-- Adjusted width and added ml-auto for image container -->
+              <figure class="flex items-center justify-center">
+                  <img class="rounded-full h-60 w-60 border-solid" src="Supritha Kotegar.jpg" alt="">
+              </figure>
+          </div>
+          
+        </section>
+    </section>
+</section>
+
+
+
+
+<!--E-D-U-C-A-T-I-O-N-->
+
+
+    <section id="Education" class="mb-12" style="padding-top: 1.5rem;">
+      <div class="text-center">
+        <h2 class="text-3xl font-extrabold text-white mt-4 mb-1 p-6">EDUCATION</h2>
+      </div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-7">
+            <!-- SJEC Card -->
+            <div class="card bg-white bg-opacity-40 rounded-lg shadow-lg overflow-hidden cursor-pointer max-h-60">
+              <div class="flex justify-center items-center h-60">
+                <img src="sjec.png" alt="SJEC" class="object-contain h-40">
+            </div>
+                
+                <div class="p-4 hidden-info flex flex-col justify-center">
+                    
+                    <p class=" text-xl text-white text-center">St. Joseph Engineering College Mangalore </p>
+                    <p class=" text-xl text-white text-center">2020-2024 </p>
+                    <p class=" text-xl text-white text-center">CGPA- 9</p>
+                </div>
+            </div>
+
+            <!-- Venktramana Card -->
+            <div class="card bg-white bg-opacity-40 rounded-lg shadow-lg overflow-hidden cursor-pointer max-h-60">
+              <div class="flex justify-center items-center custom-height">
+                <img src="venki.png" alt="SJEC" class="object-contain h-full">
+            </div>
+                
+                <div class="p-4 hidden-info flex flex-col justify-center">
+                    
+                    <p class=" text-xl  text-white text-center">Shri Venkatramana PU College Kundapura</p>
+                    <p class=" text-xl text-white text-center">2018-2020 </p>
+                    <p class=" text-xl  text-white text-center">Percentage- 96.5%</p>
+                </div>
+            </div>
+            
+
+            <!-- Don Bosco Card -->
+            <div class="card bg-white bg-opacity-40 rounded-lg shadow-lg overflow-hidden cursor-pointer max-h-60">
+              <div class="flex justify-center items-center custom-height">
+                <img src="db.png" alt="SJEC" class="object-contain h-full">
+            </div>
+                
+                <div class="p-4 hidden-info flex flex-col justify-center">
+                    
+                    <p class=" text-xl text-white text-center">Don Bosco CBSE School Trasi</p>
+                    <p class=" text-xl  text-white text-center">2015-2018 </p>
+                    <p class=" text-xl  text-white text-center">Percentage- 84.6%</p>
+                </div>
+            </div>
+    </section>
+
+<!--SKILLS-->
+
+
+<section id="skills" class="mx-auto" style="padding-top: 1.5rem;">
+  <div class="container mx-auto">
+      <div class="text-center">
+        <div class="text-center">
+          <h2 class="text-3xl font-extrabold text-white mt-4 mb-0 p-6">SKILLS</h2>
+        </div>
+        
+          <p class="lg:max-w-3xl lg:mx-auto text-white text-xl leading-7">
+              Both technical skills and interpersonal skills are crucial in today's professional landscape. Technical
+              skills provide the foundation for job competence, enabling efficient task execution and problem-solving.
+              Interpersonal skills foster effective communication, teamwork, and conflict resolution, promoting positive
+              work relationships and a collaborative atmosphere. A balance of both skill sets is essential for individual
+              success and a thriving work environment.
+          </p>
+      </div>
+
+      <div class="flex justify-center sm:py-10">
+          <div class="w-full py-3 px-2 sm:max-auto sm:px-0">
+              <div class="relative text-gray-700 antialiased text-sm font-semibold">
+
+                  <div class="hidden absolute w-1 sm:block bg-purple-900 h-full left-1/2 transform -translate-x-1/2"></div>
+
+                  <!-- Front End Development Technologies -->
+                  <div class="mt-6 sm:mt-0 sm:mb-8" data-aos="fade-right" data-aos-duration="1200">
+                      <div class="flex items-center flex-col sm:flex-row">
+                          <div class="flex justify-start w-full mx-auto items-center">
+                              <div class="sm:w-1/2 pr-8">
+                                  <div class="bg-white p-4 rounded shadow group hover:bg-pink-900 cursor-pointer ease-in duration-150" data-aos="fade-right" data-aos-duration="1200">
+                                    
+                                      <h3 class="text-purple-900 font-semibold mb-3 group-hover:text-white group-hover:font-semibold text-2xl">
+                                          Front End Development Technologies
+                                      </h3>
+                                      <p class="text-base text-smallTextColor group-hover:text-white group-hover:font-medium leading-7">
+                                          HTML, CSS, React, Tailwind CSS
+                                      </p>
+                                  </div>
+                              </div>
+                          </div>
+                          <div class="rounded-full bg-purple-900 border-white border-4 w-10 h-10 absolute left-1/2 transform -translate-x-1/2 -translate-y-4 sm:translate-y-0 flex items-center justify-center">
+                              <figure>
+                                  <img src="front-end.png" alt="Frontend">
+                              </figure>
+                          </div>
+                      </div>
+                  </div>
+
+                  <!-- Programming Languages -->
+                  <div class="mt-4 sm:mt-0 sm:mb-8">
+                      <div class="flex items-center flex-col sm:flex-row">
+                          <div class="flex justify-end w-full mx-auto items-center">
+                              <div class="w-full sm:w-1/2 pl-8">
+                                  <div class="bg-white p-4 rounded shadow group hover:bg-pink-900 cursor-pointer ease-in duration-150" data-aos="fade-left" data-aos-duration="1200">
+                                      <h3 class="text-purple-900 font-semibold mb-3 group-hover:text-white group-hover:font-semibold text-2xl">
+                                          Programming Languages
+                                      </h3>
+                                      <p class="text-base text-smallTextColor group-hover:text-white group-hover:font-medium leading-7">
+                                          C, C++, Python, Java
+                                      </p>
+                                  </div>
+                              </div>
+                          </div>
+                          <div class="rounded-full bg-purple-900 border-white border-4 w-10 h-10 absolute left-1/2 transform -translate-x-1/2 -translate-y-4 sm:translate-y-0 flex items-center justify-center">
+                              <figure>
+                                  <img src="front-end.png" alt="Backend">
+                              </figure>
+                          </div>
+                      </div>
+                  </div>
+
+                  <!-- Back End Development -->
+                  <div class="mt-4 sm:mt-0 sm:mb-8">
+                      <div class="flex items-center flex-col sm:flex-row">
+                          <div class="flex justify-start w-full mx-auto items-center">
+                              <div class="w-full sm:w-1/2 pr-8">
+                                  <div class="bg-white p-4 rounded shadow group hover:bg-pink-900 cursor-pointer ease-in duration-150" data-aos="fade-right" data-aos-duration="1200">
+                                      <h3 class="text-purple-900 font-semibold mb-3 group-hover:text-white group-hover:font-semibold text-2xl">
+                                          Back End Development
+                                      </h3>
+                                      <p class="text-base text-smallTextColor group-hover:text-white group-hover:font-medium leading-7">
+                                          PHP, SQL, MySQL
+                                      </p>
+                                  </div>
+                              </div>
+                          </div>
+                          <div class="rounded-full bg-purple-900 border-white border-4 w-10 h-10 absolute left-1/2 transform -translate-x-1/2 -translate-y-4 sm:translate-y-0 flex items-center justify-center">
+                              <figure>
+                                  <img src="backend.png" alt="UI/UX">
+                              </figure>
+                          </div>
+                      </div>
+                  </div>
+
+                  <!-- UI UX Design / App Development -->
+                  <div class="mt-4 sm:mt-0 sm:mb-8">
+                      <div class="flex items-center flex-col sm:flex-row">
+                          <div class="flex justify-end w-full mx-auto items-center">
+                              <div class="w-full sm:w-1/2 pl-8">
+                                  <div class="bg-white p-4 rounded shadow group hover:bg-pink-900 cursor-pointer ease-in duration-150" data-aos="fade-left" data-aos-duration="1200">
+                                      <h3 class="text-purple-900 font-semibold mb-3 group-hover:text-white group-hover:font-semibold text-2xl">
+                                          UI UX Design / App Development
+                                      </h3>
+                                      <p class="text-base text-smallTextColor group-hover:text-white group-hover:font-medium leading-7">
+                                          Figma, Flutter, Android Studio
+                                      </p>
+                                    </div>
+                                  </div>
+                              </div>
+                              <div class="rounded-full bg-purple-900 border-white border-4 w-10 h-10 absolute left-1/2 transform -translate-x-1/2 -translate-y-4 sm:translate-y-0 flex items-center justify-center">
+                                  <figure>
+                                      <img src="backend.png" alt="UI/UX">
+                                  </figure>
+                              </div>
+                          </div>
+                      </div>
+                      <div class="mt-4 sm:mt-0 sm:mb-8">
+                        <div class="flex items-center flex-col sm:flex-row">
+                            <div class="flex justify-start w-full mx-auto items-center">
+                                <div class="w-full sm:w-1/2 pr-8">
+                                    <div class="bg-white p-4 rounded shadow group hover:bg-pink-900 cursor-pointer ease-in duration-150" data-aos="fade-right" data-aos-duration="1200">
+
+
+
+                                      <h3 class="text-purple-900 font-semibold mb-3 group-hover:text-white group-hover:font-semibold text-2xl">
+                                          Interpersonal Skills
+                                      </h3>
+                                      <p class="text-base text-smallTextColor group-hover:text-white group-hover:font-medium leading-7">
+                                          Presentation, Leadership, Quick Learner, Problem solving, Communication
+                                      </p>
+                                  </div>
+                              </div>
+                          </div>
+                          <div class="rounded-full bg-purple-900 border-white border-4 w-10 h-10 absolute left-1/2 transform -translate-x-1/2 -translate-y-4 sm:translate-y-0 flex items-center justify-center">
+                              <figure>
+                                  <img src="backend.png" alt="Interpersonal Skills">
+                              </figure>
+                          </div>
+                      </div>
+                  </div>
+
+              </div>
+          </div>
+      </div>
+  </div>
+</section>
+
+<!-- AOS Animation Script -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script>
+        AOS.init();
+    </script>
+
+
+<!-- Projects Section -->
+<section id="projects" style="padding-top: 1.5rem;">
+  <div class="text-center">
+    <h2 class="text-3xl font-extrabold text-white mt-4 mb-4 p-6">PROJECTS</h2>
+  </div>
+  
+  <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+    <!-- Helpline Application Card -->
+    <div class="bg-white bg-opacity-30 rounded-lg shadow-lg p-8 relative h-96">
+      <div class="relative h-full">
+        <img src="helps.jpg" alt="Helpline Application" class="w-full h-full object-cover mb-4">
+        <div class="details absolute top-0 left-0 bg-white p-6 w-full h-full opacity-0 transition-opacity duration-300">
+          <h3 class="text-xl font-bold text-purple-900">Helpline Application</h3>
+          <p class="mt-2 text-gray-600"><strong>Team size:</strong> 3</p>
+          <p class="mt-1 text-gray-600"><strong>Technology:</strong> Android Studio</p>
+          <p class="mt-1 text-gray-600"><strong>Duration:</strong> 3 days</p>
+          <p class="mt-2 text-gray-600">Developed a cutting-edge social change catalyst and revolutionary technical solutions for human’s protection.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Luminous Refuge Card -->
+    <div class="bg-white bg-opacity-30 rounded-lg shadow-lg p-8 relative h-96">
+      <div class="relative h-full">
+        <img src="village.jpg" alt="Luminous Refuge" class="w-full h-full object-cover mb-4">
+        <div class="details absolute top-0 left-0 bg-white p-6 w-full h-full opacity-0 transition-opacity duration-300">
+          <h3 class="text-xl font-bold text-purple-900">Luminous Refuge</h3>
+          <p class="mt-2 text-gray-600"><strong>Team size:</strong> 2</p>
+          <p class="mt-1 text-gray-600"><strong>Technology:</strong> C, OpenGL libraries</p>
+          <p class="mt-1 text-gray-600"><strong>Duration:</strong> 3 months</p>
+          <p class="mt-2 text-gray-600">Developed an interactive computer graphics mini-project showcasing a charming village with interactive lighting and day-night mode.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Beetle 3.0 Card -->
+    <div class="bg-white bg-opacity-30 rounded-lg shadow-lg p-8 relative h-96">
+      <div class="relative h-full">
+        <img src="beetle.jpg" alt="Beetle 3.0" class="w-full h-full object-cover mb-4">
+        <div class="details absolute top-0 left-0 bg-white p-6 w-full h-full opacity-0 transition-opacity duration-300">
+          <h3 class="text-xl font-bold text-purple-900">Beetle 2.0</h3>
+          <p class="mt-2 text-gray-600">Managing the team's media and marketing efforts, including creating posters, the website's HTML, and Photoshop.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!--INTERNSHIP-->
+<section id="Internships" style="padding-top: 1.5rem;">
+  <div class="container mx-auto px-4 py-12">
+    <h2 class="text-3xl font-extrabold mb-8 text-center text-white">INTERNSHIPS</h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <div class="card bg-white bg-opacity-30 p-8 rounded-lg shadow-lg flex flex-col items-center animation-slideInFromLeft">
+        <img src="varcon.png" alt="Internship" class="object-cover mb-4 custom-height1">
+        <h3 class="text-xl font-bold mb-2 text-white">Varcons Technologies</h3>
+      
+        <div class="hidden-info flex-col items-center text-white">
+          <p>Redesigned the website for an NGO -WeSaveAnimals
+          </p>
+        </div>
+      </div>
+      <div class="card bg-white bg-opacity-30 p-8 rounded-lg shadow-lg flex flex-col items-center animation-slideInFromTop">
+        <img src="parrophins.png" alt="Internship" class="custom-height1 object-cover mb-4">
+        <h3 class="text-xl font-bold mb-2 text-white">ParroPhins Pvt. Ltd.</h3>
+        
+        <div class="hidden-info flex-col items-center text-white">
+          <p>Developed user-friendly software that allows users to
+            maintain current family history information.</p>
+        </div>
+      </div>
+      <div class="card bg-white bg-opacity-30 p-8 rounded-lg shadow-lg flex flex-col items-center animation-slideInFromRight">
+        <img src="eg.png" alt="Internship" class="custom-height1 object-cover mb-4">
+        <h3 class="text-xl font-bold mb-2 text-white">EGDK India Pvt.Ltd.</h3>
+        
+        <div class="hidden-info flex-col items-center text-white">
+          <p>Redesigned the time registration app and created Git and PowerShell cheat sheets.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!--CERTIFICATE-->
+<section id="certs" style="padding-top: 1.5rem;">
+<div class="container mx-auto py-10 text-center">
+  <h2 class="text-3xl font-extrabold text-white mb-8">CERTIFICATES</h2>
+
+  <!-- Buttons Container -->
+  <div class="flex flex-col items-center mb-8">
+    <!-- Button 1 -->
+    <div>
+      <button id="btn4" class="bg-pink-900 bg-opacity-70 px-4 py-2 m-2 text-white rounded font-bold" onclick="showCertificate('cert4')">Java-J2EE TalentNext Wipro Limited</button>
+    </div>
+
+    <!-- Button 2 -->
+    <div>
+      <button id="btn2" class="bg-pink-900 bg-opacity-70 px-4 py-2 m-2 text-white rounded font-bold" onclick="showCertificate('cert2')">Salesforce Developer Virtual Internship</button>
+    </div>
+
+    <!-- Button 3 -->
+    <div>
+      <button id="btn1" class="bg-pink-900 bg-opacity-70 px-5 py-2 m-2 text-white rounded font-bold" onclick="showCertificate('cert1')">Neural Networks and Deep Learning - Coursera</button>
+    </div>
+
+    <!-- Button 4 -->
+    <div>
+      <button id="btn3" class="bg-pink-900 bg-opacity-70 px-4 py-2 m-2 text-white rounded font-bold" onclick="showCertificate('cert3')">Persistent Martian Summer Internship Program 2023</button>
+    </div>
+  </div>
+
+  <!-- Image Container -->
+  <div id="cert4" class="certificate-container hidden flex items-center justify-center">
+    <img src="wip.png" alt="Java-J2EE TalentNext Wipro Limited" class="max-w-full h-auto rounded shadow-md">
+  </div>
+  <div id="cert2" class="certificate-container hidden">
+    <img src="cert2.jpg" alt="Salesforce Developer Virtual Internship" class="max-w-full h-auto rounded shadow-md">
+  </div>
+  <div class="flex justify-start">
+    <div id="cert1" class="certificate-container hidden">
+      <img src="cert1.jpg" alt="Neural Networks and Deep Learning - Coursera" class="max-w-full h-auto rounded shadow-md">
+    </div>
+  </div>
+  <div class="flex justify-start">
+    <div id="cert3" class="certificate-container hidden">
+      <img src="cert3.jpg" alt="Persistent Martian Summer Internship Program 2023" class="max-w-full h-auto rounded shadow-md">
+    </div>
+  </div>
+</div>
+<script>
+  function showCertificate(certId) {
+      // Hide all certificates
+      const certificates = document.querySelectorAll('.certificate-container');
+      certificates.forEach(cert => cert.classList.add('hidden'));
+
+      // Show the selected certificate
+      const selectedCert = document.getElementById(certId);
+      if (selectedCert) {
+          selectedCert.classList.remove('hidden');
+      }
+  }
+</script>
+</section>
+<!--RESPONSIBILITY-->
+
+<section id="ror" class="container mx-auto py-10" style="padding-top: 1.5rem;">
+  <div class="text-center">
+      <h2 class="text-3xl font-extrabold text-white mt-4 mb-4 p-6">ROLE OF RESPONSIBILITY</h2>
+  </div>
+
+  <div class="flex flex-col sm:flex-row items-center justify-center sm:space-x-4">
+      <!-- Image Section -->
+      <div class="w-full sm:w-1/2 p-4" data-aos="fade-right" data-aos-duration="1200">
+          <div class="bg-white p-4 rounded shadow flex items-center justify-center h-full">
+              <img src="esjec.jpg" alt="Team eSJEC Racing Image" class="w-full h-full object-cover rounded">
+          </div>
+      </div>
+
+      <!-- Text Section -->
+      <div class="w-full sm:w-1/2 p-4" data-aos="fade-left" data-aos-duration="1200">
+          <div class="bg-white p-4 rounded shadow flex items-center justify-center h-full group hover:bg-pink-900 cursor-pointer ease-in duration-150">
+              <div>
+                  <h3 class="text-purple-900 font-extrabold mb-3 group-hover:text-white group-hover:font-semibold text-2xl">
+                      Team eSJEC Racing
+                  </h3>
+                  <p class="text-base text-smallTextColor group-hover:text-white group-hover:font-medium leading-7">
+                    Driven by passion, innovation, and a need for speed, Team SJEC Racing from St. Joseph Engineering College is ready to conquer the track. With cutting-edge technology and unwavering teamwork, we push boundaries and leave our mark in the world of motorsport.We successfully competed in Baja SAEINDIA held in Indore.<br>
+                      Built electric vehicle and participated in mega ATV.<br>
+                      Handled the team website and kept it up to date.
+                  
+                  </p>
+              </div>
+          </div>
+      </div>
+  </div>
+</section>
+<!--CONTACT-->
+<section id="contact" class="pb-16" style="padding-top: 1.5rem;">
+  <div class="container mx-auto">
+    <div class="text-center ">
+      <h2 class="text-3xl font-extrabold text-white mt-4 mb-4 p-7">GET IN TOUCH</h2>
+    </div>
+    
+      <div class="md:flex justify-between items-center bg-white bg-opacity-30">
+          <div class="mx-8 md:w-1/2 h-72 sm:h-112">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3889.2455453300527!2d74.83874757447273!3d12.891926387416172!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ba35bff736828a1%3A0x62bd476b93aa6a2e!2sEGDK%20INDIA%20PVT.%20LTD.!5e0!3m2!1sen!2sin!4v1716653810789!5m2!1sen!2sin"  
+              class="border-0 w-full h-full" 
+              allowfullscreen="" 
+              loading="lazy" 
+              referrerpolicy="no-referrer-when-downgrade"></iframe>
+          </div>
+          <div class="w-full mt-8 md:mt-0 md:w-1/2 sm:h-112 lg:flex items-center px-4 lg:px-8 py-8">
+              <form class="w-full">
+                  <div class="mb-5">
+                      <input type="text" placeholder="Enter your name" class="w-full p-3 focus:outline-none rounded-md"/>
+                  </div>
+                  <div class="mb-5">
+                      <input type="email" placeholder="Enter your email" class="w-full p-3 focus:outline-none rounded-md"/>
+                  </div>
+                  <div class="mb-5">
+                      <input type="text" placeholder="Subject" class="w-full p-3 focus:outline-none rounded-md"/>
+                  </div>
+                  <div class="mb-5">
+                      <textarea rows="3" placeholder="Write your message" class="w-full p-3 focus:outline-none rounded-md"></textarea>
+                  </div>
+                  <button class="w-full p-3 focus:outline-none rounded-md bg-pink-900 text-white hover:bg-pink-700 text-center ease-linear duration-150">
+                      Send message
+                  </button>
+              </form>
+          </div>
+      </div>
+  </div>
+</section>
+<!--<section id="contactme">
+  <h2 class="text-2xl font-semibold text-gray-800 mt-4 p-6">GET IN TOUCH</h2>
+  <div class="max-w-md mx-auto mt-10">
+  <form action="#" method="POST" class="space-y-4">
+    <div>
+      <label for="name" class="block mb-1">Name</label>
+      <input type="text" id="name" name="name" class="w-full border rounded-md px-3 py-2" placeholder="Your Name" required>
+    </div>
+    <div>
+      <label for="email" class="block mb-1">Email</label>
+      <input type="email" id="email" name="email" class="w-full border rounded-md px-3 py-2" placeholder="Your Email" required>
+    </div>
+    <div>
+      <label for="subject" class="block mb-1">Subject</label>
+      <input type="text" id="subject" name="subject" class="w-full border rounded-md px-3 py-2" placeholder="Subject" required>
+    </div>
+    <div>
+      <label for="message" class="block mb-1">Message</label>
+      <textarea id="message" name="message" rows="4" class="w-full border rounded-md px-3 py-2" placeholder="Your Message" required></textarea>
+    </div>
+    <div>
+      <button type="submit" class="bg-blue-500 hover:bg-blue-600 text-white rounded-md px-4 py-2">Send Message</button>
+    </div>
+  </form>
+</div>
+
+</section>-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script>
+        AOS.init();
+    </script>
+</body>
+</html>
